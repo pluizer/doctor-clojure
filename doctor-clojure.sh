@@ -7,7 +7,7 @@ DIR="$(cd "$(dirname "$SOURCE")" && pwd)"
 
 case "${1:-}" in
   --help|-h)
-    echo "usage: doctor-clojure check|fix|repair <file>"
+    echo "usage: doctor-clojure [check|fix|repair] <file>"
     exit 0
     ;;
 esac
@@ -17,7 +17,15 @@ if ! command -v clojure &>/dev/null; then
   exit 1
 fi
 
+CMD="repair"
 FILE="$1"
+case "$FILE" in
+  check|fix|repair)
+    CMD="$FILE"
+    FILE="$2"
+    ;;
+esac
+
 if [[ ! -f "$FILE" ]]; then
   echo "error: file not found: $FILE" >&2
   exit 1
@@ -158,4 +166,4 @@ cat > "$TMP/doctor_clojure.clj" << 'CLJCODE'
 CLJCODE
 
 cd "$TMP"
-exec clojure -M -m doctor-clojure repair "$(cd "$(dirname "$FILE")" && pwd)/$(basename "$FILE")"
+exec clojure -M -m doctor-clojure "$CMD" "$(cd "$(dirname "$FILE")" && pwd)/$(basename "$FILE")"

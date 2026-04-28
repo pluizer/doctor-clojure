@@ -16,6 +16,9 @@ Requires Clojure CLI.
 
 #+begin_src sh
 doctor-clojure <file>
+doctor-clojure check <file>
+doctor-clojure fix <file>
+doctor-clojure repair <file>
 doctor-clojure --help
 #+end_src
 
