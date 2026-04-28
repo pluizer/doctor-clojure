@@ -165,5 +165,6 @@ cat > "$TMP/doctor_clojure.clj" << 'CLJCODE'
       (exit fail-exit (str "unknown command: " cmd ". usage: doctor-clojure check|fix|repair <file>")))))
 CLJCODE
 
+ABS="$(cd "$(dirname "$FILE")" && pwd)/$(basename "$FILE")"
 cd "$TMP"
-exec clojure -M -m doctor-clojure "$CMD" "$(cd "$(dirname "$FILE")" && pwd)/$(basename "$FILE")"
+exec clojure -M -m doctor-clojure "$CMD" "$ABS"
