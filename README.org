@@ -5,7 +5,7 @@ Check and auto-fix unbalanced delimiters in Clojure source files.
 ** Install
 
 #+begin_src sh
-curl -LO https://<url>/doctor-clojure.sh
+curl -LO https://raw.githubusercontent.com/pluizer/doctor-clojure/master/doctor-clojure.sh
 chmod +x doctor-clojure.sh
 mv doctor-clojure.sh ~/.local/bin/doctor-clojure
 #+end_src
