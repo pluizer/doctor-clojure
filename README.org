@@ -1,0 +1,24 @@
+#+TITLE: doctor-clojure
+
+Check and auto-fix unbalanced delimiters in Clojure source files.
+
+** Install
+
+#+begin_src sh
+curl -LO https://<url>/doctor-clojure.sh
+chmod +x doctor-clojure.sh
+mv doctor-clojure.sh ~/.local/bin/doctor-clojure
+#+end_src
+
+Requires Clojure CLI.
+
+** Usage
+
+#+begin_src sh
+doctor-clojure <file>
+doctor-clojure --help
+#+end_src
+
+** License
+
+EPL-2.0
